@@ -6,7 +6,7 @@ Hi everyone! This is the **REMAKE** edition of my k-Nearest Neighbors (kNN) algo
 
 Although kNN is known as a Machine Learning classification algorithm, being a simple and effective, easy to implement and yielding satisfactory results, here it is designed for **proximity querying**.
 
-For details about my original kNN implementation which was written in **Java**, please click here.
+For details about my original kNN implementation which was written in **Java**, please [click here](https://github.com/toUpperCase78/k-nearest-neighbors-java-remastered).
 
 ## Screenshots
 
@@ -43,4 +43,37 @@ After cloning this repository, all you have to do is to enter the command below 
 
 ```
 python knn_python.py
+```
+
+Then, everything you see should be similar to what was shared in the screenshots above. That is, the location of the data objects and the query object are placed randomly, and the selected k nearest data objects are already highlighted.
+
+**Below is the list of actions that can be dome from the keyboard:**
+
+* `Space` = Create new data objects and the query object randomly from the beginning
+* `Keypad 2` / `4` / `6` / `8` = Move the query object down, left, right and up respectively, by the step of movement speed
+* `A` = Show / hide the ID number of data objects
+* `S` = Show / hide the (x, y) coordinates of data objects and the query object
+* `D` = Show / hide the distances of selected k nearest neighbors in the output
+* `F` = Show / hide the connectivity of all data objects to each other with regards to the current value of k
+* `G` = Show / hide the convex hull drawn in the plain space _(powered by SciPy)_
+* `Q` = Switch between light and dark mode _(default mode = light)_
+* `Z` / `X` = Decrease / increase the k value by 1 _(minimum = 1, maximum = 10, default = 3)_
+* `C` / `V` = Decrease / increase the query speed by 1 _(minimum = 1, maximum = 20, default = 8)_
+* `B` / `N` = Decrease / increase the number of query objects appeared on the plain space by 5 _(minimum = 10, maximum = 100, default = 40)_
+* `P` = Save everything in the current window as JPEG image
+
+## Additional Notes
+
+1. If the appearance of kNN connectivity between all data objects is activated, then you may see lots of green straight lines drawn. As in the original, this is an experimental feature to figure out if all data objects can construct one whole connectivity region based on the knowledge of their kNNs, so a graph theory could be built from there. The chance is likely higher when k value and data objects are high enough.
+
+2. When k nearest data objects' distance output is enabled, the information containing the IDs of data objects and their Euclidean distances is displayed in the output. This is triggered upon the movement of the query object every time. The example format is shown below:
+
+```
+Shortest Distances = [(20, 160.1311921110684), (11, 226.73773395709856), (31, 249.75588081164375)]
+```
+
+3. When the script is run or when data objects and the query object are fully randomized or when the k value is changed, the kNN of each data object against all other objects is displayed in the output. The corresponding line starts like this:
+
+```
+Data Objects kNN = [(0, [22, 19, 28]), (1, [23, 36, 38]), (2, [24, 25, 10]), ...
 ```
