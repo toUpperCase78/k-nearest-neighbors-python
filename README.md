@@ -10,13 +10,13 @@ For details about my original kNN implementation which was written in **Java**, 
 
 ## Screenshots
 
-<!-- ![kNN Python](screenshot1.jpg)
+![kNN Python](screenshot1.jpg)
 
 ![kNN Python](screenshot3.jpg)
 
 ![kNN_Python](screenshot8.jpg)
 
-![kNN_Python](screenshot5.jpg) -->
+![kNN_Python](screenshot5.jpg)
 
 ## Features
 
@@ -77,3 +77,21 @@ Shortest Distances = [(20, 160.1311921110684), (11, 226.73773395709856), (31, 24
 ```
 Data Objects kNN = [(0, [22, 19, 28]), (1, [23, 36, 38]), (2, [24, 25, 10]), ...
 ```
+
+4. When the visualization of the convex hull is on, there are thick purple straight lines drawn through each of the query objects, thus a convex polygon is formed, containing all of the data objects involved. Of course, this convex hull gets changed every time new creation of data objects altogether is triggered or the number of visible data objects is adjusted. The output shows these data objects as simplices like this:
+
+```
+Convex Hull Points = [[15, 28], [36, 4], [9, 28], [21, 15], [30, 19], [30, 36], [17, 19], [17, 9], [25, 4], [25, 21]]
+```
+
+5. When left or right mouse button is clicked anywhere on the plain space, the (x, y) coordinates of the clicked location and the k nearest objects numbers plus their distances are displayed in the output. Here is an example format:
+
+```
+x = 631 | y = 358 --> [(14, 57.706152185014034), (27, 58.60034129593445), (5, 82.15229759416349)]
+```
+
+6. Inside the source code, you are free to adjust these variables and set new defaults; but please make sure they are still in the min-max range for proper execution: `data_cnt`, `qspeed`, `k`
+
+7. There are several boolean variables which are all set to `False`, but can be changed to `True` as new defaults: `show_numbers`, `show_coords`, `show_distance`, `show_connection`, `show_convex_hull`, `dark_mode`
+
+8. Last but not the least, the default resolution of the plain space is 1024 x 768. Beyond this resolution, extra height was needed in order to display the status of some numbers (k value, query speed and number of data objects) and show the available commands with the press of keyboard keys. The resolution can be adjusted by using these variables `width` and `height`. But, for the sake of running this script properly, I do not recommend changing the resolution at all.
